@@ -9,6 +9,6 @@
 - All work will be subfolders inside public_html (for the most part), lib will contain reusable functionality, partials will contain reusable templates, nothing else should change.
 
 # HW1 
-# IT202-450
-# Kyle Pinon
-# My favorite sport to play is tennis 
+## IT202-450
+### Kyle Pinon
+#### My favorite sport to play is tennis 
