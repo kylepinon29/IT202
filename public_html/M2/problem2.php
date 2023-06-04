@@ -6,6 +6,7 @@ $a4 = [10.01, -12.22, 0.23, 19.20, -5.13, 3.12];
 function getTotal($arr) {
     echo "<br>Processing Array:<br><pre>" . var_export($arr, true) . "</pre>";
     $total = 0.00;
+    //kp742 - 6/4/23
     //TODO do adding here
     foreach ($arr as $value) {
         $total += $value;
