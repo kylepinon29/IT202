@@ -25,4 +25,4 @@
 <tr><td> <em>Sub-Task 4: </em> Paste the direct link from heroku prod to the init_db.php file (i.e., https://mt85-prod.herokuapp.com/Project/sql/init_db.php)</td></tr>
 <tr><td> <a rel="noreferrer noopener" target="_blank" href="https://kp742-prod.herokuapp.com/Project/sql/init_db.php">https://kp742-prod.herokuapp.com/Project/sql/init_db.php</a> </td></tr>
 </table></td></tr>
-<table><tr><td><em>Grading Link: </em><a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IT202-450-M23/init-db-setup/grade/kp742" target="_blank">Grading</a></td></tr></table>
+<table><tr><td><em>Grading Link: </em><a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IT202-450-M23/init-db-setup/grade/kp742" target="_blank">Grading</a></td></tr></table>     
