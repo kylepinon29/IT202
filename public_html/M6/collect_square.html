@@ -196,11 +196,13 @@
 </head>
 
 <style>
-    #canvas {
-  width: 600px;
-  height: 400px;
-  border: 1px solid black;
-}
+    canvas:focus{
+            border: 3px solid black;
+        }
+        canvas:not(:focus){
+            border: 1px dotted black;
+        }
+
 </style>
 <body onload="init();">
     <div>
