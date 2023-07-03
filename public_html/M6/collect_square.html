@@ -20,6 +20,12 @@
         var speed = 6; // Distance to move each frame
         var sideLength = 50; // Length of each side of the square
 
+        // Properties for the power-up square
+        var powerUpX = 0;
+        var powerUpY = 0;
+        var powerUpLength = 25;
+        var powerUpActive = false; // Flag to track if the power-up is active
+
         // FLags to track which keys are pressed
         var down = false;
         var up = false;
@@ -122,6 +128,9 @@
         function moveTarget() {
         targetX = Math.round(Math.random() * canvas.width - targetLength);
         targetY = Math.round(Math.random() * canvas.height - targetLength)
+        // Move the power-up square to a random position
+        powerUpX = Math.round(Math.random() * canvas.width - powerUpLength);
+        powerUpY = Math.round(Math.random() * canvas.height - powerUpLength);
         }
 
         // Clear the canvas
@@ -166,7 +175,20 @@
             moveTarget();
             // Increase the score
             score++;
+            // Activate the power-up
+            powerUpActive = true;
             }
+        // Collide with the power-up
+        if (
+            powerUpActive &&
+            (isWithin(powerUpX, x, x + sideLength) || isWithin(powerUpX + powerUpLength, x, x + sideLength)) &&
+            (isWithin(powerUpY, y, y + sideLength) || isWithin(powerUpY + powerUpLength, y, y + sideLength))
+        ) {
+            // Deactivate the power-up
+            powerUpActive = false;
+            // Increase the speed
+            speed += 2;
+        }
         }
         // Draw the square
         context.fillStyle = '#FF0000';
