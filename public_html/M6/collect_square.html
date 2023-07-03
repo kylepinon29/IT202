@@ -24,7 +24,7 @@
         var powerUpX = 0;
         var powerUpY = 0;
         var powerUpLength = 25;
-        var powerUpActive = false; // Flag to track if the power-up is active
+        var powerUpActive = true; // Flag to track if the power-up is active
 
         // FLags to track which keys are pressed
         var down = false;
@@ -169,8 +169,10 @@
             x = canvas.width - sideLength;
         }
         // Collide with the target
-        if (isWithin(targetX, x, x + sideLength) || isWithin(targetX + targetLength, x, x + sideLength)) { // X
-            if (isWithin(targetY, y, y + sideLength) || isWithin(targetY + targetLength, y, y + sideLength)) { // Y
+        if (
+            isWithin(targetX, x, x + sideLength) || isWithin(targetX + targetLength, x, x + sideLength) // X
+            (isWithin(targetY, y, y + sideLength) || isWithin(targetY + targetLength, y, y + sideLength)) // Y
+        ) {
             // Respawn the target
             moveTarget();
             // Increase the score
@@ -213,7 +215,7 @@
         } else {
             window.requestAnimationFrame(draw);
         }
-        }
+        
 
         // Start the game
         menu();
