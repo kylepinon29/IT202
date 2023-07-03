@@ -196,6 +196,11 @@
         // Draw the target 
         context.fillStyle = '#00FF00';
         context.fillRect(targetX, targetY, targetLength, targetLength);
+        // Draw the power-up square
+        if (powerUpActive) {
+            context.fillStyle = '#0000FF';
+            context.fillRect(powerUpX, powerUpY, powerUpLength, powerUpLength);
+        }
         // Draw the score and time remaining
         context.fillStyle = '#000000';
         context.font = '24px Arial';
