@@ -42,12 +42,14 @@
       var targetLength = 25;
 
       // Properties for the size-up power-up
+      // kp742 - 7/3/23
       var sizeUpX = 0;
       var sizeUpY = 0;
       var sizeUpLength = 25;
       var sizeUpActive = false;
 
       // Properties for the speed-up power-up
+      // kp742 - 7/3/23
       var speedUpX = 0;
       var speedUpY = 0;
       var speedUpLength = 25;
@@ -145,8 +147,10 @@
         // Put the target at a random starting point
         moveTarget();
         // Put the size-up power-up at a random starting point
+        // kp742 - 7/3/23
         moveSizeUp();
         // Put the speed-up power-up at a random starting point
+        // kp742 - 7/3/23
         moveSpeedUp();
         // Kick off the draw loop
         draw();
@@ -175,12 +179,14 @@
       }
 
       // Move the size-up power-up to a random position
+      //kp742 - 7/3/23
       function moveSizeUp() {
         sizeUpX = Math.round(Math.random() * (canvas.width - sizeUpLength));
         sizeUpY = Math.round(Math.random() * (canvas.height - sizeUpLength));
       }
 
       // Move the speed-up power-up to a random position
+      // kp742 - 7/3/23
       function moveSpeedUp() {
         speedUpX = Math.round(Math.random() * (canvas.width - speedUpLength));
         speedUpY = Math.round(Math.random() * (canvas.height - speedUpLength));
@@ -239,6 +245,7 @@
           }
         }
         // Collide with the size-up power-up
+        // kp742 - 7/3/23
         if (
           isWithin(sizeUpX, x, x + sideLength) ||
           isWithin(sizeUpX + sizeUpLength, x, x + sideLength)
@@ -256,6 +263,7 @@
           }
         }
         // Collide with the speed-up power-up
+        // kp742 - 7/3/23
         if (
           isWithin(speedUpX, x, x + sideLength) ||
           isWithin(speedUpX + speedUpLength, x, x + sideLength)
@@ -287,9 +295,11 @@
         context.fillStyle = "#00FF00";
         context.fillRect(targetX, targetY, targetLength, targetLength);
         // Draw the size-up power-up
+        // kp742 - 7/3/23
         context.fillStyle = "#FFFF00";
         context.fillRect(sizeUpX, sizeUpY, sizeUpLength, sizeUpLength);
         // Draw the speed-up power-up
+        // kp742 - 7/3/23
         context.fillStyle = "#0000FF";
         context.fillRect(speedUpX, speedUpY, speedUpLength, speedUpLength);
         // Draw the score and time remaining
