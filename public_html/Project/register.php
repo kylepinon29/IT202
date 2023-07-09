@@ -7,6 +7,10 @@ require_once(__DIR__ . '/../../partials/nav.php');
         <input type="email" name="email" required />
     </div>
     <div>
+        <label for="username">Username</label>
+        <input type="username" name="username" required maxlength="30" />
+    </div>
+    <div>
         <label for="pw">Password</label>
         <input type="password" id="pw" name="password" required minlength="8" />
     </div>
@@ -26,12 +30,13 @@ require_once(__DIR__ . '/../../partials/nav.php');
 </script>
 <?php
  //TODO 2: add PHP Code
-if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm'])){
+if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm']) && isset($_POST['username'])){
     //get the email key from $_POST, default to '' if not set, and return the value
     $email = se($_POST, 'email','', false);
     //same as aboe but for password and confirm
     $password = se($_POST, 'password','', false);
     $confirm = se($_POST, 'confirm','', false);
+    $username = se($_POST, 'username','', false);
     //TODO 3: validate/use
     $hasError = false;
     if(empty($email)){
@@ -44,6 +49,9 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm'
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
         flash("Invalid email address<br>");
         $hasErorr = true; 
+    }
+    if (!preg_match('/^[a-z0-9_-]{3,30}$/', $username)){
+        flash("Username must only contain lower case letters, numbers, hyphen and/or underscores and be between 3-30 characters");
     }
     if(empty($password)){
         flash("Password must not be empty<br>");
@@ -68,9 +76,9 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm'
         //TODO 4
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $db = getDB();
-        $stmt = $db->prepare('INSERT INTO Users(email, password) VALUES (:email, :password)');
+        $stmt = $db->prepare('INSERT INTO Users(email, password, username) VALUES (:email, :password, :username)');
         try{
-            $r = $stmt->execute([":email"=>$email, ":password"=>$hash]);
+            $r = $stmt->execute([":email"=>$email, ":password"=>$hash, ":username" => $username]);
             flash("Successfully registered!");
         } catch (Exception $e) {
             flash("There was a problem registering<br>");
