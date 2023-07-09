@@ -35,32 +35,32 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm'
     //TODO 3: validate/use
     $hasError = false;
     if(empty($email)){
-        echo 'Email must not be empty';
+        echo 'Email must not be empty<br>';
         $hasError = true;
     }
     //sanitize 
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     //validate
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        echo 'Invalid email address';
+        echo 'Invalid email address<br>';
         $hasErorr = true; 
     }
     if(empty($password)){
-        echo 'Password must not be empty';
+        echo 'Password must not be empty<br>';
         $hasError = true;
     }
     if(empty($confirm)){
-        echo 'Confirm password must not be empty';
+        echo 'Confirm password must not be empty<br>';
         $hasError = true;
     }
     if(strlen($password) < 8){
-        echo 'Password too short';
+        echo 'Password must be at least 8 characters long<br>';
         $hasError = true;
     }
     if (
         strlen($password) > 0 && $password !== $confirm
     ) {
-        echo 'Password must match';
+        echo 'Password must match<br>';
         $hasError = true;
     }
     if (!$hasError){
